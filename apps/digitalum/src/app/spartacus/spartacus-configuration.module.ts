@@ -77,7 +77,7 @@ import {
         intersectionMargin: '50px',
       },
       pwa: {
-        enabled: true,
+        enabled: false,
         // addToHomeScreen: true,
       },
     }),
