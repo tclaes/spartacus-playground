@@ -46,7 +46,12 @@ import {
       },
     }),
     provideConfig(<SiteContextConfig>{
-      context: {},
+      context: {
+        baseSite: ['electronics-spa'],
+        language: ['en'],
+        currency: ['USD'],
+        urlParameters: ['baseSite', 'language', 'currency'],
+      },
     }),
     provideConfig(<I18nConfig>{
       i18n: {
