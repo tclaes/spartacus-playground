@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "files": [],
   "include": [],
+  "types": ["cypress", "cypress-axe"],
   "references": [
     {
       "path": "./tsconfig.e2e.json"

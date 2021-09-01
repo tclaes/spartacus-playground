@@ -12,9 +12,10 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "YmZlM2U0NzEtOTQyMi00OTU2LTg4OWEtY2Y2MWU2YTE3NzIwfHJlYWQtd3JpdGU="
       }
     }
   },
@@ -33,6 +34,12 @@
     "digitalum-e2e": {
       "tags": [],
       "implicitDependencies": ["digitalum"]
+    },
+    "normalizers": {
+      "tags": []
+    },
+    "services": {
+      "tags": []
     }
   }
 }

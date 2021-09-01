@@ -1,0 +1,6 @@
+<ng-container *ngIf="product$ | async as product">
+  <div class="price">{{ product?.price?.formattedValue }}</div>
+
+  <p [innerHTML]='product?.summary' class='summary'></p>
+  <p>Stock level: {{ product?.stock?.stockLevel}}</p>
+</ng-container>

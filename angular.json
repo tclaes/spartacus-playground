@@ -7,11 +7,60 @@
       "sourceRoot": "apps/digitalum/src",
       "prefix": "spartacus-nx",
       "architect": {
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/digitalum/server",
+            "main": "apps/digitalum/server.ts",
+            "tsConfig": "apps/digitalum/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/digitalum/src/environments/environment.ts",
+                  "with": "apps/digitalum/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "digitalum:build",
+            "serverTarget": "digitalum:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "digitlum:build:production",
+              "serverTarget": "digitalum:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "digitalum:build:production",
+            "serverTarget": "digitalum:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
-            "outputPath": "dist/apps/digitalum",
+            "outputPath": "dist/apps/digitalum/browser",
             "index": "apps/digitalum/src/index.html",
             "main": "apps/digitalum/src/main.ts",
             "polyfills": "apps/digitalum/src/polyfills.ts",
@@ -19,10 +68,25 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "apps/digitalum/src/favicon.ico",
-              "apps/digitalum/src/assets"
+              "apps/digitalum/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@spartacus/smartedit/assets",
+                "output": "assets/"
+              },
+              "apps/digitalum/src/manifest.webmanifest"
             ],
-            "styles": ["apps/digitalum/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "apps/digitalum/src/styles.scss",
+              "apps/digitalum/src/styles/spartacus/user.scss",
+              "apps/digitalum/src/styles/spartacus/storefinder.scss",
+              "apps/digitalum/src/styles/spartacus/product.scss",
+              "apps/digitalum/src/styles/spartacus/checkout.scss",
+              "apps/digitalum/src/styles/spartacus/cart.scss"
+            ],
+            "scripts": [],
+            "serviceWorker": true,
+            "ngswConfigPath": "apps/digitalum/ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -30,7 +94,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2.5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -86,10 +150,26 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/digitalum"],
+          "outputs": [
+            "coverage/apps/digitalum"
+          ],
           "options": {
             "jestConfig": "apps/digitalum/jest.config.js",
-            "passWithNoTests": true
+            "passWithNoTests": true,
+            "styles": [
+              "apps/digitalum/src/styles/spartacus/user.scss",
+              "apps/digitalum/src/styles/spartacus/storefinder.scss",
+              "apps/digitalum/src/styles/spartacus/product.scss",
+              "apps/digitalum/src/styles/spartacus/checkout.scss",
+              "apps/digitalum/src/styles/spartacus/cart.scss"
+            ],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@spartacus/smartedit/assets",
+                "output": "assets/"
+              }
+            ]
           }
         }
       }
@@ -115,7 +195,63 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/digitalum-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/digitalum-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "normalizers": {
+      "projectType": "library",
+      "root": "libs/normalizers",
+      "sourceRoot": "libs/normalizers/src",
+      "prefix": "spartacus-nx",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/normalizers"
+          ],
+          "options": {
+            "jestConfig": "libs/normalizers/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/normalizers/src/**/*.ts",
+              "libs/normalizers/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "services": {
+      "projectType": "library",
+      "root": "libs/services",
+      "sourceRoot": "libs/services/src",
+      "prefix": "spartacus-nx",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/services"
+          ],
+          "options": {
+            "jestConfig": "libs/services/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/services/src/**/*.ts",
+              "libs/services/src/**/*.html"
+            ]
           }
         }
       }

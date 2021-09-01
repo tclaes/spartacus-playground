@@ -1,0 +1,4 @@
+<p>my-sales works!</p>
+<a routerLink='/electronics/cameras/digital-compacts/Sony/358639/DSC-N1'>Product</a><br>
+<a [routerLink]="{ cxRoute: 'product', params: { code: '358639', nameForUrl: 'DSC-N1'}} | cxUrl">Product</a><br>
+<button type='button' (click)='goToRandomProduct()'>I'm feeling lucky!</button>
