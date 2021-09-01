@@ -40,7 +40,8 @@ import {
     provideConfig(<OccConfig>{
       backend: {
         occ: {
-          baseUrl: 'https://localhost:9002',
+          baseUrl:
+            'https://ec2-34-245-130-226.eu-west-1.compute.amazonaws.com:9002/',
         },
       },
     }),
