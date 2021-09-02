@@ -73,8 +73,7 @@
                 "glob": "**/*",
                 "input": "./node_modules/@spartacus/smartedit/assets",
                 "output": "assets/"
-              },
-              "apps/digitalum/src/manifest.webmanifest"
+              }
             ],
             "styles": [
               "apps/digitalum/src/styles.scss",
@@ -85,8 +84,6 @@
               "apps/digitalum/src/styles/spartacus/cart.scss"
             ],
             "scripts": [],
-            "serviceWorker": true,
-            "ngswConfigPath": "apps/digitalum/ngsw-config.json"
           },
           "configurations": {
             "production": {

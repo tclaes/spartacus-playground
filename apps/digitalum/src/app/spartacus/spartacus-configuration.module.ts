@@ -81,10 +81,6 @@ import {
         strategy: DeferLoadingStrategy.DEFER,
         intersectionMargin: '50px',
       },
-      pwa: {
-        enabled: false,
-        // addToHomeScreen: true,
-      },
     }),
   ],
 })
