@@ -2117,15 +2117,15 @@
     ts-morph "^9.1.0"
     tslib "^2.3.0"
 
-"@spartacus/setup@^3.0.0-rc.2":
-  version "3.4.4"
-  resolved "https://registry.yarnpkg.com/@spartacus/setup/-/setup-3.4.4.tgz#cfd98afc69a217d22d029bac2bae529c92a156f6"
-  integrity sha512-fae+v9co65yhCNX66wGlLNETIdrD4clD+9z3Jz4Z47nB6PiIlGlkk0h5twOc1za7GuJUzCp3PST7EgHHdhUaOg==
+"@spartacus/setup@~4.0.0":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@spartacus/setup/-/setup-4.0.1.tgz#bb722ec2a919f350755e483157a009a6a91f822e"
+  integrity sha512-ncAzOTANKoNV0ovJvDMQKbNdEYM1gDyHZlzmSzqwgakkLUaxexdWSBNYRxUsGAcRZtUYnbc+pvH0NKr/N7spWA==
   dependencies:
-    tslib "^2.0.0"
+    tslib "^2.3.0"
   optionalDependencies:
-    "@nguniversal/express-engine" "^10.1.0"
-    express "^4.15.0"
+    "@nguniversal/express-engine" "^12.0.2"
+    express "^4.15.2"
 
 "@spartacus/smartedit@~4.0.0":
   version "4.0.0"
@@ -5878,7 +5878,7 @@ expect@^27.0.6:
     jest-message-util "^27.0.6"
     jest-regex-util "^27.0.6"
 
-express@^4.15.0, express@^4.15.2, express@^4.17.1:
+express@^4.15.2, express@^4.17.1:
   version "4.17.1"
   resolved "https://registry.yarnpkg.com/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
   integrity sha512-mHJ9O79RqluphRrcw2X/GTh3k9tVv8YcoyY4Kkh4WDMUYKRZUq0h1o0w2rrrxBqM7VoeUVqgb27xlEMXTnYt4g==

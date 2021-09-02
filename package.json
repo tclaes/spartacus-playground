@@ -57,7 +57,7 @@
     "@spartacus/checkout": "~4.0.0",
     "@spartacus/core": "~4.0.0",
     "@spartacus/product": "~4.0.0",
-    "@spartacus/setup": "^3.0.0-rc.2",
+    "@spartacus/setup": "~4.0.0",
     "@spartacus/smartedit": "~4.0.0",
     "@spartacus/storefinder": "~4.0.0",
     "@spartacus/storefront": "~4.0.0",
